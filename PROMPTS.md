@@ -12,7 +12,7 @@ Use these highly structured workflow prompts to maintain control of the AI and f
 
 ```text
 Before we start building anything, I need you to understand this project.
-1. Inspect the root folder structure and the `src/` directory.
+1. Inspect the root folder structure and the primary source directories.
 2. Identify the authentication pattern being used (if any).
 3. Identify the data fetching layer or database pattern.
 4. Summarize the existing naming and styling conventions (e.g., CSS modules vs Tailwind).
