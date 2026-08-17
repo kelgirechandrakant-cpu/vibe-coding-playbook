@@ -73,7 +73,9 @@ For debugging:
 2. Copy [`AGENTS.md`](./AGENTS.md) into your project's `.agents` or `.cursorrules` folder.
 3. Keep [`DEBUGGING.md`](./DEBUGGING.md) open when you hit your first major error.
 
-## Contribution & License
+## Contribution, License & Legal
 Read our [Contribution Guidelines](./CONTRIBUTING.md) to submit new skills, debugging patterns, or case studies.
 
-Licensed under the [MIT License](./LICENSE).
+Licensed under the [MIT License](./LICENSE). 
+
+**Disclaimer:** This is an educational resource. The author is not responsible for any software bugs, security breaches, financial losses, or data loss caused by AI coding agents. Read the full [Legal Disclaimer](./DISCLAIMER.md) before using these methodologies in production.
