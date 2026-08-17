@@ -5,8 +5,10 @@ Use these highly structured workflow prompts to maintain control of the AI and f
 
 ---
 
-## 1. The Architecture Framing Prompt
-*Use this when starting a brand new feature to force the AI to design the system before writing code.*
+## 1. Planning Phase
+
+### Project Discovery & Architecture
+*Why it works: Forces the AI to design the system, data models, and edge cases before generating spaghetti code.*
 
 ```text
 I want to build a [Feature Name] feature for my application.
@@ -22,8 +24,10 @@ Before writing any code, output a technical implementation plan covering:
 Do not write any implementation code until I approve the plan.
 ```
 
-## 2. The Implementation Prompt
-*Use this after the architecture is approved to execute the plan in small steps.*
+## 2. Implementation Phase
+
+### Implement a Feature
+*Why it works: Constrains the AI to the agreed-upon plan and forces it to inspect existing code rather than hallucinating paths.*
 
 ```text
 Based on our approved plan, we will now implement Step 1: [Specific Task].
@@ -37,20 +41,8 @@ Please:
 Keep the change as narrow as possible. Do not modify files outside of this scope.
 ```
 
-## 3. The Code Review Prompt
-*Use this after the AI writes code, but before you commit it.*
-
-```text
-Review the code changes you just generated for [Feature Name] against the following criteria:
-1. Security: Are there any obvious vulnerabilities (e.g., exposed API keys, lack of authorization checks)?
-2. Performance: Does this introduce any infinite loops, massive re-renders, or heavy bundle additions?
-3. Maintainability: Is this hardcoded, or is it scalable?
-
-If there are issues, list them. If it is clean, give me the exact command to run a local test.
-```
-
-## 4. The Refactor Prompt
-*Use this when your codebase is getting messy, but you want to ensure the AI doesn't break functionality.*
+### Refactoring a Component
+*Why it works: Prevents the AI from accidentally changing the functionality while it cleans up the structure.*
 
 ```text
 The file [Filename] has become too complex and messy.
@@ -61,4 +53,36 @@ CRITICAL RULE: We are changing the structure, NOT the functionality. The end-use
 First, identify the 3-4 distinct responsibilities this file currently handles.
 Then, propose a folder structure and component breakdown for the refactor.
 Wait for my approval before modifying the code.
+```
+
+## 3. Debugging Phase
+
+### Structured Bug Investigation
+*Why it works: Stops the "Infinite Debugging Loop" by forcing the AI to identify the root cause instead of patching the symptom.*
+
+```text
+The [API Endpoint / Component] is throwing the following error:
+[Paste exact error log]
+
+Environment: [Local / Production / Vercel]
+Recent change: [What did you just modify?]
+
+Do not immediately generate a code patch. 
+1. Formulate a hypothesis for the root cause.
+2. Identify the specific file/layer where this is failing.
+3. Tell me what `console.log` or test I should run to confirm your hypothesis.
+```
+
+## 4. Review Phase
+
+### Pre-Commit Code Review
+*Why it works: Acts as an automated senior engineer looking over your PR before you merge.*
+
+```text
+Review the code changes you just generated for [Feature Name] against the following criteria:
+1. Security: Are there any obvious vulnerabilities (e.g., exposed API keys, lack of authorization checks)?
+2. Performance: Does this introduce any infinite loops, massive re-renders, or heavy bundle additions?
+3. Maintainability: Is this hardcoded, or is it scalable?
+
+If there are issues, list them. If it is clean, give me the exact command to run a local test.
 ```
