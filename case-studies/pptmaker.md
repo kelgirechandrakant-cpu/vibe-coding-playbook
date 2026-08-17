@@ -29,5 +29,15 @@ By forcing the AI to conform to this specific architecture, the infinite debuggi
 
 **Solution:** The developer pushed back on the AI's patch. Instead of paying for higher limits, they implemented a multi-key rotation system (`api-rotation/`) and streamed the response directly to the client to keep the connection alive. 
 
+## Acquiring 3,000 Users via Programmatic AI SEO
+**Problem:** The app was functional, but zero people were visiting it. The developer knew SEO was the best long-term acquisition channel, but manually coding dozens of landing pages and embedding schema would take months.
+
+**Solution:** Instead of asking the AI to "write a blog post," the developer created rigid "Agent Skills" (`add-landing`, `add-blog`) to instruct the AI how to generate SEO-optimized React pages systematically. 
+1. **Schema Automation:** The AI was constrained to automatically inject valid JSON-LD schemas (FAQ, SoftwareApplication) into the `<head>` of every generated page.
+2. **Programmatic Architecture:** The AI was directed to build a `ToolsHub` and dynamic URL structures (`/tools/resume-builder`, `/tools/cover-letter`) to capture long-tail keywords.
+3. **Core Web Vitals Protection:** The AI was routinely audited using a `perf-audit` protocol to ensure it didn't bloat the bundle size with heavy libraries, which would penalize the site in Google rankings.
+
+By combining the developer's structural SEO strategy with the AI's code generation speed, PPT Maker rapidly deployed dozens of highly-optimized landing pages, resulting in over 3,000 organic users.
+
 ## The Lesson
-AI accelerates implementation, but it will always choose the path of least resistance (patching a symptom). The developer must act as the Senior Engineer, enforcing architectural boundaries and rejecting lazy patches.
+AI accelerates implementation, but it will always choose the path of least resistance (patching a symptom). The developer must act as the Senior Engineer, enforcing architectural boundaries, optimizing for distribution (SEO), and rejecting lazy patches.
