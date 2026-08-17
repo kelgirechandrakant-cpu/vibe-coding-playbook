@@ -7,6 +7,19 @@ Use these highly structured workflow prompts to maintain control of the AI and f
 
 ## 1. Planning Phase
 
+### Onboarding AI to an Existing Codebase
+*Why it works: Prevents the AI from hallucinating a stack, architecture, or naming convention by forcing it to read the current reality first.*
+
+```text
+Before we start building anything, I need you to understand this project.
+1. Inspect the root folder structure and the `src/` directory.
+2. Identify the authentication pattern being used (if any).
+3. Identify the data fetching layer or database pattern.
+4. Summarize the existing naming and styling conventions (e.g., CSS modules vs Tailwind).
+
+Do not write any code. Just output your summary of the project's current state so I can confirm you understand it.
+```
+
 ### Project Discovery & Architecture
 *Why it works: Forces the AI to design the system, data models, and edge cases before generating spaghetti code.*
 
@@ -85,4 +98,13 @@ Review the code changes you just generated for [Feature Name] against the follow
 3. Maintainability: Is this hardcoded, or is it scalable?
 
 If there are issues, list them. If it is clean, give me the exact command to run a local test.
+```
+
+### Security Audit
+*Why it works: Explicitly triggers a strict threat model review against a specific surface area before shipping to production.*
+
+```text
+Run the `security-audit` skill against [Route / File Path]. 
+Specifically check for XSS vectors, CSRF vulnerabilities, and Firebase security rules / RLS bypasses. 
+Do not output generalized advice. Tell me exactly what vulnerabilities exist in this specific code and how to fix them before deployment.
 ```

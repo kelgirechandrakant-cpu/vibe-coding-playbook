@@ -36,6 +36,8 @@ Before you deploy your AI-generated app to production, run through this practica
 - [ ] **Canonical URLs:** Are they set where appropriate?
 - [ ] **Structured data:** Is Schema.org JSON-LD added for articles or products?
 - [ ] **Indexability checked:** Is the content rendered server-side or statically, rather than hiding behind a client-side loading spinner?
+- [ ] Programmatic/templated pages have genuinely unique content per page, not boilerplate with swapped variables (thin-content risk)
+- [ ] Reciprocal hreflang tags are present on both sides of any translated page pair
 
 ## 6. Deployment
 - [ ] **Environment variables configured:** Are production secrets added to Vercel/Netlify/AWS?

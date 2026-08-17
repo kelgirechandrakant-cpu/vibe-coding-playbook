@@ -1,9 +1,15 @@
 # Agent Instructions (AGENTS.md)
 
 > **Instructions for the Developer:** 
-> Copy this file into the root of your project as `.agents/AGENTS.md`, `cursorrules`, or inject it into your AI assistant's custom instructions. It acts as the "Operating System" for your AI.
+> Copy this file into the root of your project as `.agents/AGENTS.md`, `.cursorrules`, or inject it into your AI assistant's custom instructions. It acts as the "Operating System" for your AI.
 
 ---
+
+## Project Context (fill this in before use)
+- **Stack:** [e.g., React, Next.js, Node]
+- **Database:** [e.g., PostgreSQL, Firebase]
+- **Auth:** [e.g., Supabase, Auth0]
+- **Naming/styling conventions:** [e.g., Tailwind CSS, camelCase variables]
 
 ## Core System Prompt for AI Coding Agent
 
@@ -34,6 +40,8 @@ Before you tell me "I have finished the task," you must:
 - **Report Truthfully:** Report exactly what you verified. Do NOT claim you tested something if you only wrote the code for it.
 
 ### 4. Debugging Protocol
+See DEBUGGING.md for the full 9-step protocol — this is the condensed version for quick reference.
+
 If I give you an error message:
 1. Do not immediately generate a code patch.
 2. Formulate a hypothesis for the root cause.

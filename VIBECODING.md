@@ -21,13 +21,13 @@ Use the AI as a sounding board. Ask it: "If we build the feature this way, what 
 Context is everything. When asking an AI to build a new route, provide the database schema, the authentication middleware, and the exact files it needs to modify. Do not rely on it to "guess" your folder structure.
 
 ## 7. Breaking Work Into Small Tasks
-"Build a dashboard" is a terrible prompt. "Create the layout grid for the dashboard," followed by "Build the user statistics card," followed by "Fetch the data from the API" is how you successfully vibe code.
+"Build a dashboard" is a terrible prompt. "Create the layout grid for the dashboard," followed by "Build the user statistics card," followed by "Fetch the data from the API" is how you successfully vibe code. See a concrete example in [feature implementation](./examples/feature-implementation.md).
 
 ## 8. Implementing Features
 Follow the **Plan → Context → Implement** loop. Ensure the AI is only modifying what it needs to modify.
 
 ## 9. Reviewing AI-Generated Code
-Never blindly accept a diff. Read the code. Did it import a massive 2MB library just to parse a date? Did it remove your error boundary? **The developer owns the final result.**
+Never blindly accept a diff. Read the code. Did it import a massive 2MB library just to parse a date? Did it remove your error boundary? **The developer owns the final result.** Use the [code review skill](./skills/code-review/SKILL.md) to automate this.
 
 ## 10. Testing AI-Generated Changes
 Run the code locally. Click the buttons. Disconnect your wifi and see what happens. The AI will often claim "I fixed the issue," but it only fixed it in its own imagination.
@@ -39,7 +39,7 @@ See [`DEBUGGING.md`](./DEBUGGING.md) for the full protocol. Never tell the AI "f
 When a file gets messy, use the AI to break it apart. But never mix feature development with refactoring. Refactor first, verify it works exactly as before, then add the new feature.
 
 ## 13. Security
-AI optimizes for making things work, which often means bypassing security. It will happily put API keys in the browser bundle or leave Firestore rules wide open. See [`PRODUCTION-CHECKLIST.md`](./PRODUCTION-CHECKLIST.md).
+AI optimizes for making things work, which often means bypassing security. It will happily put API keys in the browser bundle or leave Firestore rules wide open. See [`PRODUCTION-CHECKLIST.md`](./PRODUCTION-CHECKLIST.md) and use the [security audit skill](./skills/security-audit/SKILL.md).
 
 ## 14. Performance
 Watch for excessive `useEffect` dependencies, lack of pagination, and unoptimized images. Ask the AI: "Is there a more performant way to write this specific function?"
@@ -54,4 +54,4 @@ Never let an AI auto-deploy to production without a human reviewing the `git dif
 Keep your `AGENTS.md` updated as your project evolves. If you change your naming conventions, tell the AI so it doesn't revert to old habits.
 
 ## 18. When NOT to Let AI Make the Decision
-Do not let the AI choose your database, your authentication provider, or your core framework without you doing independent research. The AI will often recommend what is most popular in its training data, not what is right for your specific constraints.
+Do not let the AI choose your database, your authentication provider, or your core framework without you doing independent research. The AI will often recommend what is most popular in its training data, not what is right for your specific constraints. See the [PPT Maker case study](./case-studies/pptmaker.md) for a concrete example of ceding too much architectural control.
