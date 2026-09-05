@@ -1,0 +1,30 @@
+# Vibe Coding Playbook
+
+> A practical methodology and rules template for building, debugging, securing, and shipping production software using AI coding agents (Cursor, Antigravity, Claude Code, Windsurf, GitHub Copilot).
+
+## Core Concepts & Rules
+
+- [Vibe Coding Methodology](./VIBECODING.md): The fundamental rules of directing AI agents, maintaining architectural ownership, and preventing code drift.
+- [AGENTS.md System Prompt](./AGENTS.md): Copy-pasteable system rules template for Cursor (`.cursorrules`), Antigravity (`AGENTS.md`), and Claude Code.
+- [Prompt Engineering Library](./PROMPTS.md): Production-tested prompt patterns organized by planning, implementation, review, and refactoring phases.
+- [Debugging Guide](./DEBUGGING.md): Step-by-step diagnostic workflow to escape the infinite debugging loop and enforce root-cause fixes.
+- [Production Readiness Checklist](./PRODUCTION-CHECKLIST.md): Security, API key rotation, rate limiting, and deployment checklist before releasing AI-generated code.
+
+## Reusable Agent Skills
+
+- [Architecture Review Skill](./skills/architecture-review/SKILL.md): Enforces data flow verification and boundary checks before writing code.
+- [Code Review Skill](./skills/code-review/SKILL.md): Diff analysis for antipatterns, missing types, and hidden bugs.
+- [Debugging Skill](./skills/debugging/SKILL.md): Systematic root-cause diagnostic protocol for handling runtime errors and broken exports.
+- [Security Audit Skill](./skills/security-audit/SKILL.md): OWASP Top 10 + threat modeling for AI-generated backend routes and Firebase rules.
+- [Performance Audit Skill](./skills/performance-audit/SKILL.md): Bundle analysis, CLS prevention, and network waterfall optimization.
+- [Production Readiness Skill](./skills/production-readiness/SKILL.md): Pre-ship verification of environment variables, telemetry noise filtering, and error fallbacks.
+
+## Real-World Case Studies
+
+- [PPT Maker Case Study](./case-studies/pptmaker.md): How a 25+ theme AI presentation generator SaaS was built, debugged, and scaled to 3,000+ users using vibe coding principles.
+
+## Concrete Examples
+
+- [Bad vs Good Prompts](./examples/bad-vs-good-prompts.md): Side-by-side prompt comparisons showing vague requests vs constrained agent prompts.
+- [Bad vs Good Debugging](./examples/bad-vs-good-debugging.md): Demonstrating symptom patching vs root-cause isolation.
+- [Feature Implementation Workflow](./examples/feature-implementation.md): End-to-end example of implementing a complex feature using small, verifiable commits.

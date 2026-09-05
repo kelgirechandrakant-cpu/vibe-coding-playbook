@@ -1,0 +1,74 @@
+# Vibe Coding Playbook - Full Methodology & Rules Context
+
+> **Version:** 1.0.0
+> **Repository:** https://github.com/kelgirechandrakant-cpu/vibe-coding-playbook
+> **Author:** Chandrakant Kelgire (PPT Maker / Student Suite)
+
+---
+
+## SECTION 1: THE VIBE CODING METHODOLOGY
+
+### What is Vibe Coding?
+Vibe coding is the workflow of using AI coding agents (Cursor, Antigravity, Claude Code, Windsurf, Copilot) to build software at high velocity. However, unconstrained vibe coding leads to:
+1. Architectural drift.
+2. Hidden technical debt.
+3. Silent exception swallowing and symptom patching.
+4. Infinite debugging loops.
+
+### The 10 Core Principles
+1. **AI is the implementation engine, not the owner of the architecture.**
+2. **The developer owns the final result.**
+3. **Never blindly trust generated code.**
+4. **Build in small, verifiable increments.**
+5. **Understand the problem before asking AI to modify code.**
+6. **Prefer root-cause fixes over patches.**
+7. **Context is part of the prompt.**
+8. **Every significant AI-generated change should be verified.**
+9. **A working prototype is not automatically production-ready software.**
+10. **The goal is not to write less code. The goal is to build better software with AI.**
+
+---
+
+## SECTION 2: SYSTEM PROMPT / AGENTS.MD TEMPLATE
+
+```markdown
+# AGENTS.md — Project Guidelines for AI Agents
+
+## 1. Code Quality Rules
+- Define explicit TypeScript interfaces for all shared data structures.
+- Never use `any` types for primary data models.
+- No hardcoded API keys. Access secrets server-side via process.env.
+- Inspect logs and stack traces completely before diagnosing runtime errors.
+
+## 2. Debugging Rules
+- Iron Law: No code changes without prior root-cause investigation.
+- Trace data flow from UI -> Client API -> Express Server -> AI Provider -> UI.
+- Never swallow errors silently or return empty fallback data without logging.
+- Stop after 3 unsuccessful bug-fix iterations to re-evaluate hypotheses.
+
+## 3. Security Rules
+- Sanitize user-generated content rendered in HTML using DOMPurify.
+- Validate request inputs on Express backend endpoints.
+- Ensure telemetry logs filter benign user input errors (e.g. invalid zip uploads) to avoid alert spam.
+```
+
+---
+
+## SECTION 3: THE DEBUGGING WORKFLOW
+
+### The Infinite Debugging Loop Prevention Protocol
+When an error occurs:
+1. **Reproduce**: Capture the exact user action and error stack trace.
+2. **Diagnose**: Trace upstream data callers instead of patching the crash line.
+3. **Isolate**: Verify if the failure stems from invalid inputs, network timeouts, or schema mismatches.
+4. **Fix**: Write a minimal, surgical fix at the root source.
+5. **Verify**: Execute unit tests or local build verification before committing.
+
+---
+
+## SECTION 4: CASE STUDY SUMMARY (PPT MAKER)
+
+- **Scale:** Built a 25+ presentation theme SaaS, resume builder, and PDF tools.
+- **Architectural Innovation:** The Theme Triad (Prompt Engine `gemini{Theme}.ts` + Browser Renderer `{Theme}SlideRenderer.tsx` + PPTX Exporter `ppt{Theme}.ts`).
+- **Resilience:** Multi-key API rotation handling 504 timeouts and rate limits.
+- **Telemetry Optimization:** Filtered benign user file upload errors (corrupted zips in `JSZip`) to maintain high signal-to-noise in automated Telegram notifications.
