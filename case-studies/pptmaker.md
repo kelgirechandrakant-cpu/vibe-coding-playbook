@@ -22,12 +22,17 @@ They designed a new architecture: **The Theme Triad**. Every theme must have exa
 2. `{Theme}SlideRenderer.tsx` (Browser Preview)
 3. `ppt{Theme}.ts` (PPTX Exporter)
 
-By forcing the AI to conform to this specific architecture, the infinite debugging loop ended. When the export broke, the developer pointed the AI *only* at `ppt{Theme}.ts`. 
+By forcing the AI to conform to this specific architecture across 25+ presentation themes, the infinite debugging loop ended. When the export broke, the developer pointed the AI *only* at `ppt{Theme}.ts`. 
 
 ## 504 Timeouts & Rate Limits
 **Problem:** The Gemini API would sometimes take 30+ seconds to respond. The Vercel serverless function timed out, throwing a 504 error. The AI suggested increasing the Vercel timeout limits (which costs money on higher tiers).
 
 **Solution:** The developer pushed back on the AI's patch. Instead of paying for higher limits, they implemented a multi-key rotation system (`api-rotation/`) and streamed the response directly to the client to keep the connection alive. 
+
+## Alert Noise & Telemetry Safeguards
+**Problem:** The developer set up an automated Telegram bot to alert on tool failures. However, when guest users uploaded corrupted `.docx` or non-zip files, JSZip threw raw errors (`Can't find end of central directory`), flooding the developer's Telegram alerts with false alarms.
+
+**Solution:** Instead of treating user-side input errors as critical system failures, the developer updated `toolTelemetry.ts` to filter out benign error regex patterns (corrupted zips, user cancels, network aborts) while wrapping file extractors in friendly UI error fallbacks. This restored high signal-to-noise ratio in production alerts.
 
 ## Acquiring 3,000 Users via Programmatic AI SEO
 **Problem:** The app was functional, but zero people were visiting it. The developer knew SEO was the best long-term acquisition channel, but manually coding dozens of landing pages and embedding schema would take months.
@@ -46,4 +51,4 @@ By combining the developer's structural SEO strategy with the AI's code generati
 - **Top-of-Funnel Reach:** AI-generated blog posts like "Top Fonts for Professional Slides" acted as a wide net, capturing nearly 500 views on a single article.
 
 ## The Lesson
-AI accelerates implementation, but it will always choose the path of least resistance (patching a symptom). The developer must act as the Senior Engineer, enforcing architectural boundaries, optimizing for distribution (SEO), and rejecting lazy patches.
+AI accelerates implementation, but it will always choose the path of least resistance (patching a symptom). The developer must act as the Senior Engineer, enforcing architectural boundaries, filtering telemetry noise, optimizing for distribution (SEO), and rejecting lazy patches.
