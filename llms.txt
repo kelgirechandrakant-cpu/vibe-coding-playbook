@@ -6,6 +6,7 @@
 
 - [Vibe Coding Methodology](./VIBECODING.md): The fundamental rules of directing AI agents, maintaining architectural ownership, and preventing code drift.
 - [AGENTS.md System Prompt](./AGENTS.md): Copy-pasteable system rules template for Cursor (`.cursorrules`), Antigravity (`AGENTS.md`), and Claude Code.
+- [Context Engineering Guide](./CONTEXT-ENGINEERING.md): Managing context tiers, preventing token bloat, and safe zero-leak context bundling.
 - [Prompt Engineering Library](./PROMPTS.md): Production-tested prompt patterns organized by planning, implementation, review, and refactoring phases.
 - [Debugging Guide](./DEBUGGING.md): Step-by-step diagnostic workflow to escape the infinite debugging loop and enforce root-cause fixes.
 - [Production Readiness Checklist](./PRODUCTION-CHECKLIST.md): Security, API key rotation, rate limiting, and deployment checklist before releasing AI-generated code.

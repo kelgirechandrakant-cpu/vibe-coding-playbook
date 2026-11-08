@@ -100,6 +100,7 @@ For debugging:
 
 - [**`VIBECODING.md`**](./VIBECODING.md) - The core conceptual playbook and methodology.
 - [**`AGENTS.md`**](./AGENTS.md) - Instructions to copy into your project to align your AI agent.
+- [**`CONTEXT-ENGINEERING.md`**](./CONTEXT-ENGINEERING.md) - Context tiering, preventing token bloat, and safe zero-leak context bundling.
 - [**`PROMPTS.md`**](./PROMPTS.md) - A prompt library organized by development phase (Planning, Implementation, Review).
 - [**`DEBUGGING.md`**](./DEBUGGING.md) - The guide to escaping the infinite debugging loop.
 - [**`PRODUCTION-CHECKLIST.md`**](./PRODUCTION-CHECKLIST.md) - How to take your local prototype to the real world.

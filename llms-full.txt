@@ -66,9 +66,22 @@ When an error occurs:
 
 ---
 
-## SECTION 4: CASE STUDY SUMMARY (PPT MAKER)
+## SECTION 4: CASE STUDY SUMMARY (PPT MAKER / STUDENT SUITE)
 
-- **Scale:** Built a 25+ presentation theme SaaS, resume builder, and PDF tools.
-- **Architectural Innovation:** The Theme Triad (Prompt Engine `gemini{Theme}.ts` + Browser Renderer `{Theme}SlideRenderer.tsx` + PPTX Exporter `ppt{Theme}.ts`).
-- **Resilience:** Multi-key API rotation handling 504 timeouts and rate limits.
-- **Telemetry Optimization:** Filtered benign user file upload errors (corrupted zips in `JSZip`) to maintain high signal-to-noise in automated Telegram notifications.
+- **Scale:** Built a 28+ presentation theme SaaS, Dual-Mode ATS resume builder, and client-side PDF tools.
+- **Architectural Innovation:** The Theme Triad (Prompt Engine `src/utils/gemini{Theme}.ts` + Browser Renderer `src/components/slides/{Theme}SlideRenderer.tsx` + PPTX Exporter `src/lib/ppt{Theme}.ts`).
+- **Mobile-First Interaction:** Viewport containment formula `fitScale = Math.min(...)`, minimum $\ge 44 \times 44\text{ px}$ hit targets, touch filmstrip, and bottom-sheet editing.
+- **Multi-Pillar Decoupling:** `careerStateBridge.ts` and `ApplicationContextBar.tsx` sharing job targets across career tools without monolithic global state coupling.
+- **Resilience & Key Rotation:** Multi-key API rotation handling 504 timeouts and rate limits.
+- **Automated Regression Shield:** 47 Vitest test suites (298 passing tests) enforcing export fidelity, luminance contrast defense, and normalizer invariants on every commit.
+
+---
+
+## SECTION 5: CONTEXT ENGINEERING & SAFE BUNDLING
+
+- **4-Tier Context Hierarchy:**
+  - Tier 1: System Rules (`AGENTS.md` / `.cursorrules` < 300 lines).
+  - Tier 2: Architecture Blueprint (`ARCHITECTURE.md`).
+  - Tier 3: Task-Scoped Context (The 3-File Rule: modified file, interfaces, consumer).
+  - Tier 4: Sanitized Full Project Context (`full_context.txt` with strict zero-leak secret redaction).
+- **Rule of Thumb:** Context is finite. Adding irrelevant code degrades LLM reasoning and causes symptom-patching loops. Commit before context switching.
