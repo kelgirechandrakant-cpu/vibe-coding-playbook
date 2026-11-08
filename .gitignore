@@ -1,0 +1,18 @@
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Context dumps & bundles
+full_context.txt
+*.log
+
+# Dependencies & Build artifacts
+node_modules/
+dist/
+build/
+coverage/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
