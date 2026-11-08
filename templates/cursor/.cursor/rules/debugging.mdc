@@ -1,0 +1,18 @@
+---
+description: Root-cause debugging instructions to stop the infinite debugging loop
+globs: *
+---
+
+# Debugging Protocol
+
+When presented with an error message or unexpected behavior:
+
+1. **Iron Law:** Never generate a code patch without stating a hypothesis for the root cause.
+2. **Trace the Data Flow:** Trace upstream from the crash point:
+   `UI Trigger → Client API Call → Server Handler / Middleware → External Service → Response`
+3. **No Symptom Masking:**
+   - Do not wrap failing code in empty `try/catch` blocks or fallback defaults that swallow errors silently.
+   - Do not add random timeout increases to mask slow endpoints.
+4. **The 3-Strike Rule:**
+   - If 2 proposed fixes fail, stop. Do not guess a third time.
+   - Ask the developer for exact terminal logs, network payloads, or reproduction steps.

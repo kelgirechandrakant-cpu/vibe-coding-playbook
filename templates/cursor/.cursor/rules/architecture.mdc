@@ -1,0 +1,24 @@
+---
+description: Architectural rules to prevent code drift and monolith sprawl
+globs: *
+---
+
+# Architecture & File Scoping Rules
+
+Follow these rules when proposing or modifying code:
+
+1. **Think Before Coding:**
+   - Inspect existing project structure before creating new folders or utilities.
+   - Reuse functions in `src/utils/` or `lib/` before writing new helpers.
+   - Do not add third-party dependencies (`npm install`) without explicit approval.
+
+2. **The 3-File Rule:**
+   - Keep changes scoped to at most 2–3 files per turn.
+   - Never mix refactoring with feature development. Refactor first, verify, then build.
+
+3. **Domain Triads & Modular Contracts:**
+   - Divide complex features into independent layers:
+     - Prompt / Data Ingestion Layer
+     - UI / Component Rendering Layer
+     - Export / Storage Layer
+   - If a data shape changes in the ingestion layer, update both renderer and exporter synchronously.

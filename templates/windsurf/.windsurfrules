@@ -1,0 +1,12 @@
+# Windsurf Cascade Rules
+
+## Engineering Standards
+- **Read First:** Always inspect the target directory and existing components before writing code.
+- **Atomic Commits:** Limit file edits to the immediate scope of the user request.
+- **Type Safety:** Use strict TypeScript interfaces. Ban `any` types for core data structures.
+- **Secret Isolation:** Keep API keys in `.env` accessed server-side only.
+
+## Debugging Workflow
+- When an error occurs, identify the root cause before editing code.
+- Never add silent catch blocks that swallow runtime errors.
+- If 2 patch attempts fail, request terminal logs and network tab payloads.

@@ -1,0 +1,19 @@
+---
+description: Security and secret protection rules for AI coding
+globs: *
+---
+
+# Security & Data Defense Rules
+
+1. **Zero Secret Leakage:**
+   - Never place API keys, private tokens, or database credentials in client-side code.
+   - All secret keys must remain server-side in `.env` and accessed via `process.env`.
+   - Never prefix private secrets with public frontend build prefixes (e.g. `VITE_`, `NEXT_PUBLIC_`).
+
+2. **User-Generated Content Sanitization:**
+   - Any raw HTML or user content rendered to the DOM must be sanitized with DOMPurify.
+   - Never use `dangerouslySetInnerHTML` without explicit sanitization.
+
+3. **Database Authorization:**
+   - Ensure Firestore / Supabase / Postgres RLS rules validate user document ownership (`request.auth.uid == userId`).
+   - Never create open read/write rules (`allow read, write: if true`).

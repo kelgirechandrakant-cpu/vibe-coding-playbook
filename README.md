@@ -101,10 +101,12 @@ For debugging:
 - [**`VIBECODING.md`**](./VIBECODING.md) - The core conceptual playbook and methodology.
 - [**`AGENTS.md`**](./AGENTS.md) - Instructions to copy into your project to align your AI agent.
 - [**`CONTEXT-ENGINEERING.md`**](./CONTEXT-ENGINEERING.md) - Context tiering, preventing token bloat, and safe zero-leak context bundling.
+- [**`TESTING-PROTOCOL.md`**](./TESTING-PROTOCOL.md) - The Test Shield protocol to prevent AI regressions.
 - [**`PROMPTS.md`**](./PROMPTS.md) - A prompt library organized by development phase (Planning, Implementation, Review).
 - [**`DEBUGGING.md`**](./DEBUGGING.md) - The guide to escaping the infinite debugging loop.
 - [**`PRODUCTION-CHECKLIST.md`**](./PRODUCTION-CHECKLIST.md) - How to take your local prototype to the real world.
-- [**`skills/`**](./skills/) - Reusable instructions and personas that AI coding agents can follow.
+- [**`templates/`**](./templates/) - Drop-in rule templates for Cursor (`.mdc`), Claude Code (`CLAUDE.md`), Antigravity (`AGENTS.md`), Windsurf, and Copilot.
+- [**`skills/`**](./skills/) - Reusable instructions and personas that AI coding agents can follow (including `anti-slop-ui` and `test-shield`).
 - [**`examples/`**](./examples/) - Good vs. bad workflows and prompts.
 - [**`case-studies/`**](./case-studies/) - Real-world examples of this methodology in practice (e.g., [PPT Maker](./case-studies/pptmaker.md)).
 
